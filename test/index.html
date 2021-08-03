@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            /* box-sizing: border-box; */
+            padding: 0;
+            margin: 0;
+            font-family: 'Open Sans';
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        @media (min-width: 601px) {
+            main {
+                grid-template-columns: 300px 1fr
+            }
+
+            #menu {
+                display: block;
+            }
+        }
+    </style>
+    <title>App Pages Navigator</title>
+</head>
+
+<body>
+    <main>
+        <div id="menu">
+            <h2>Web app routes</h2>
+            <span>left menu</span>
+        </div>
+        <div id="element">
+
+        </div>
+    </main>
+
+
+    <script
+        src="https://martoxdlol.github.io/browser-history-flow-controller/dist/browser-history-flow-controller.js"></script>
+    <script src="app-pages-navigator.js"></script>
+    <script>
+        const element = document.getElementById('element')
+        const historyController = new window.BrowserHistoryFlowController(window.history)
+        const Navigator = new AppPagesNavigator({
+            historyController,
+            element
+        })
+    </script>
+</body>
+
+</html>
