@@ -122,6 +122,8 @@ class AppPagesNavigator {
     }
 }
 
+module.exports = AppPagesNavigator
+
 if (typeof window != 'undefined') {
     window.AppPagesNavigator = AppPagesNavigator
 }
