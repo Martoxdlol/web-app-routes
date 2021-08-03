@@ -7,7 +7,7 @@ module.exports = {
  target: ['web', 'es5'],
  output: {
    path: path.resolve(__dirname, 'dist'),
-   filename: 'app-pages-navigator.js',
+   filename: 'web-app-routes.js',
    libraryTarget: 'umd',
  },
  module: {
