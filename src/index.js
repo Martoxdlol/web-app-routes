@@ -123,6 +123,7 @@ class AppPagesNavigator {
 }
 
 module.exports = AppPagesNavigator
+exports.PageAppRoute = PageAppRoute
 exports.default = AppPagesNavigator
 
 if (typeof window != 'undefined') {
