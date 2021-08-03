@@ -2,7 +2,7 @@ const DEFAULT_ROUTE_STYLE = {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     boxShadow: '0px 0px 7px 0px rgba(0,0,0,0.3)',
     // overflow: 'hidden',
 }
