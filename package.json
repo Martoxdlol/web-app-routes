@@ -2,14 +2,14 @@
   "name": "app-pages-navigator",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/app-pages-navigator.js",
+  "main": "dist/web-app-routes.js",
   "scripts": {
     "install": "echo History Plus Plus",
     "build-dev": "webpack --config webpack.dev.config.js",
     "dev": "webpack serve --config webpack.dev.config.js",
     "prod": "webpack"
   },
-  "repository": "https://github.com/Martoxdlol/historypp",
+  "repository": "https://github.com/Martoxdlol/web-app-routes",
   "keywords": [
     "history",
     "web",
