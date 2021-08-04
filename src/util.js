@@ -14,7 +14,7 @@ function mapPushArgs(...args) {
         route = null
     }
 
-    if (typeof args[1] == 'string') {
+    if (typeof args[1] == 'string' || args[1] == null && args[2]) {
         url = args[1]
         options = { ...DEFAULT_PUSH_OPTIONS, ...args[2], url }
     } else {

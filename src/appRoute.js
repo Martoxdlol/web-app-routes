@@ -1,13 +1,14 @@
 import { DEFAULT_ROUTE_ANIMATIONS } from "./Animation"
 
 const PAGE_APP_ROUTE_DEFAULT_OPTIONS = {
-    animations: DEFAULT_ROUTE_ANIMATIONS
+    animations: DEFAULT_ROUTE_ANIMATIONS,
+    instantOpen: false,
 }
 
 class PageAppRoute {
     static TYPE_FULL_PAGE = 'FULL_PAGE'
     static TYPE_TRANSPARENT = 'TRANSPARENT'
- 
+
     constructor(content, options) {
         this.options = { ...PAGE_APP_ROUTE_DEFAULT_OPTIONS, ...options }
         this.content = content
@@ -26,7 +27,7 @@ class PageAppRoute {
 
     open() {
         'Animate from close to opened'
-        this.options.animations.open.animate(this.element)
+        if (!this.options.instantOpen) this.options.animations.open.animate(this.element)
     }
 
     async close() {
@@ -44,6 +45,10 @@ class PageAppRoute {
         'Animate from opened to hidden'
         this.options.animations.hide.animate(this.element)
 
+    }
+
+    set onPop(cb){
+        this.options.onPop = cb
     }
 }
 

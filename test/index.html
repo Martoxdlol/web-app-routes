@@ -43,6 +43,7 @@
         <div id="menu">
             <h2>Web app routes</h2>
             <span>left menu</span>
+            <button id="open_route">Open route</button>
         </div>
         <div id="element">
 
@@ -60,6 +61,13 @@
             historyController,
             element
         })
+        // Navigator.push('First page', null, {instantOpen: true})
+        Navigator.push('First page', {instantOpen: true, onPop: () => false})
+        open_route.onclick = () => {
+            Navigator.push((element, route) => {
+                element.style.backgroundColor = 'red'
+            })
+        }
     </script>
 </body>
 

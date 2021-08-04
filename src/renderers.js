@@ -5,6 +5,7 @@ const ROUTE_RENDERERS = {
     default: (content, element, route) => {
         if(content instanceof Element) element.appendChild(content)
         else if(typeof content == 'string') element.innerHTML = content
+        else if(typeof content == 'function') content(element, route)
     },
 }
 

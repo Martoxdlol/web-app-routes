@@ -36,6 +36,7 @@ class AppPagesNavigator {
         const index = this.stack.indexOf(route)
         if(this.stack[index-1]) this.stack[index-1].hide()
         route.open()
+        return route
     }
 
     push(route_or_content, url_or_options, options) {
@@ -44,8 +45,9 @@ class AppPagesNavigator {
         if (content && !route) {
             route = new PageAppRoute(content, options)
         }
-        this._push(route)
+        const r = this._push(route)
         if (options.url != undefined) this.options.historyController.url = options.url
+        return r
     }
 
     pushAndRemoveUntil(route_or_content, url_or_options, options) {
@@ -76,17 +78,20 @@ class AppPagesNavigator {
     async _pop(route) {
         const index = this.stack.indexOf(route)
 
+        if(route.options.onPop && route.options.onPop() === false) return null
+
         if(this.stack[index-1]) this.stack[index-1].show()
         await route.close()
 
-        this.stack.splice(index, 1)
+        const r = this.stack.splice(index, 1)
         this.options.element.removeChild(route.element)
+        return r
     }
 
     async pop(route, options) {
         route = route || this.top
         if (!route) return
-        this._pop(route)
+        return this._pop(route)
     }
 
     popAndPushNamed(_name, url_or_options, _options) {
