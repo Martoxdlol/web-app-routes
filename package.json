@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/web-app-routes.js",
   "scripts": {
-    "install": "npm run prod",
+    "install": "",
     "build-dev": "webpack --config webpack.dev.config.js",
     "dev": "webpack serve --config webpack.dev.config.js",
     "prod": "webpack"
